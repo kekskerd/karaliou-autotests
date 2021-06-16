@@ -33,13 +33,14 @@ public class TestHabr {
 
     @Test(description = "Проверка смены локализации")
     public void test1() {
-        WebElement localizationButton = driver.findElement(By.cssSelector("button.btn.btn_medium.btn_navbar_lang.js-show_lang_settings"));
+        WebElement localizationButton = driver.findElement(By.cssSelector("button.js-show_lang_settings"));
         localizationButton.click();
         WebElement englishRadioBtn = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//label[text()='English']")));
         englishRadioBtn.click();
-        WebElement saveSettingsButton = driver.findElement(By.cssSelector("button.btn.btn_blue.btn_huge.btn_full-width.js-popup_save_btn"));
+        WebElement saveSettingsButton = driver.findElement(By.cssSelector("button.js-popup_save_btn"));
         saveSettingsButton.click();
+        //без WebDriverWait URL не успевает смениться
         new WebDriverWait(driver, 5)
                 .until(ExpectedConditions.urlToBe("https://habr.com/en/"));
         String currentUrl = driver.getCurrentUrl();
@@ -53,7 +54,7 @@ public class TestHabr {
         logIn.click();
         WebElement emailField = driver.findElement(By.id("email_field"));
         WebElement passwordField = driver.findElement(By.id("password_field"));
-        WebElement enterButton = driver.findElement(By.cssSelector("button.button_wide.button_primary"));
+        WebElement enterButton = driver.findElement(By.xpath("//div[4]/button"));
         new Actions(driver)
                 .sendKeys(emailField, email)
                 .sendKeys(passwordField, password)
@@ -69,9 +70,9 @@ public class TestHabr {
         WebElement profileButton = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn_navbar_user-dropdown")));
         profileButton.click();
-        WebElement settings = driver.findElement(By.cssSelector("div.main-navbar__section.main-navbar__section_right > div > div > ul > li:nth-child(6) > a"));
+        WebElement settings = driver.findElement(By.xpath("//*[@role='menu']/ul/li[6]"));
         settings.click();
-        WebElement countryDropDownList = driver.findElement(By.cssSelector("div:nth-child(3) > div > div > div.h-form-select.h-form-controls__item.h-form-select_small > select"));
+        WebElement countryDropDownList = driver.findElement(By.xpath("//form/div[3]/div/div/div[1]/select"));
         countryDropDownList.click();
         WebElement country = driver.findElement(By.xpath("//option[contains(text(),'" + needCountry + "')]"));
         country.click();
