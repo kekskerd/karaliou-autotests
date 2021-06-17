@@ -6,31 +6,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import pages.HomePage;
 import pages.LogInPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestLogIn extends BaseUnLogInTest{
+public class BaseLogInTest {
     WebDriver driver;
     LogInPage logInPage;
     HomePage homePage;
-    public String email = "testuser1312test@yandex.ru";
-    public String password = "testuser1312test1312";
+    private String email = "testuser1312test@yandex.ru";
+    private String password = "testuser1312test1312";
 
-    @Test(description = "Проверка входа в систему")
-    public void test1() {
+    @BeforeTest
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.get("https://habr.com/");
         homePage = new HomePage(driver);
         homePage.logInButton.click();
         logInPage = new LogInPage(driver);
         logInPage.inputEmail(email);
         logInPage.inputPassword(password);
         logInPage.pushEnterLogInButton();
-        homePage.profileDropdownButton.click();
-        homePage.checkLogIn();
-        System.out.println("Successful \"LogIn\" test");
     }
 
+    @AfterTest
+    public void quitTest() {
+        driver.quit();
+    }
 }
