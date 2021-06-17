@@ -14,7 +14,6 @@ import pages.LogInPage;
 import java.util.concurrent.TimeUnit;
 
 public class TestLogIn extends BaseUnLogInTest{
-    WebDriver driver;
     LogInPage logInPage;
     HomePage homePage;
     public String email = "testuser1312test@yandex.ru";
@@ -27,10 +26,11 @@ public class TestLogIn extends BaseUnLogInTest{
         logInPage = new LogInPage(driver);
         logInPage.inputEmail(email);
         logInPage.inputPassword(password);
-        logInPage.pushEnterLogInButton();
-        homePage.profileDropdownButton.click();
-        homePage.checkLogIn();
+        logInPage.enterLogInButton.click();
+        Assert.assertTrue(homePage.profileDropdownButton.isDisplayed());
         System.out.println("Successful \"LogIn\" test");
     }
+
+
 
 }

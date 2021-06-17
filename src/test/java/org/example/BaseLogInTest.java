@@ -14,7 +14,7 @@ import pages.LogInPage;
 import java.util.concurrent.TimeUnit;
 
 public class BaseLogInTest {
-    WebDriver driver;
+    ChromeDriver driver;
     LogInPage logInPage;
     HomePage homePage;
     private String email = "testuser1312test@yandex.ru";
@@ -23,7 +23,7 @@ public class BaseLogInTest {
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
@@ -33,7 +33,7 @@ public class BaseLogInTest {
         logInPage = new LogInPage(driver);
         logInPage.inputEmail(email);
         logInPage.inputPassword(password);
-        logInPage.pushEnterLogInButton();
+        logInPage.enterLogInButton.click();
     }
 
     @AfterTest

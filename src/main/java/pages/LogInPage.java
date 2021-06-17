@@ -4,22 +4,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 
-public class LogInPage {
-    WebDriver driver;
+public class LogInPage extends BasePage{
+
+    @FindBy(id = "email_field")
+    public WebElement emailField;
+
+    @FindBy(id = "password_field")
+    public WebElement passwordField;
+
+    @FindBy(xpath = "//div[4]/button")
+    public WebElement enterLogInButton;
 
     public LogInPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public void inputEmail(String email){
-        driver.findElement(By.id("email_field")).sendKeys(email);
+    public void inputEmail(String email) {
+        emailField.sendKeys(email);
     }
-    public void inputPassword(String password){
-        driver.findElement(By.id("password_field")).sendKeys(password);
-    }
-    public void pushEnterLogInButton(){
-        driver.findElement(By.xpath("//div[4]/button")).click();
+
+    public void inputPassword(String password) {
+        passwordField.sendKeys(password);
     }
 
 }

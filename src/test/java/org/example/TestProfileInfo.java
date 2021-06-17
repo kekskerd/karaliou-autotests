@@ -14,6 +14,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.ProfilePage;
 import pages.SettingsPage;
 
 import java.util.ArrayList;
@@ -21,9 +22,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestProfileInfo extends BaseLogInTest {
-    WebDriver driver;
     HomePage homePage;
     SettingsPage settingsPage;
+    ProfilePage profilePage;
     private String needCountry = "Сектор Газа";
 
 
@@ -34,12 +35,10 @@ public class TestProfileInfo extends BaseLogInTest {
         homePage.profileSettings.click();
         settingsPage = new SettingsPage(driver);
         settingsPage.countryDropDownList.click();
-        settingsPage.getCountry(needCountry).click();
-        new WebDriverWait(driver, 3)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(),'Успешно обновили')]")));
+        settingsPage.getCountry.click();
         settingsPage.profile.click();
-        WebElement checkNeedCountry = driver.findElement(By.xpath("//*[contains(text(),'" + needCountry + "')]"));
-        Assert.assertTrue(checkNeedCountry.isDisplayed());
+        profilePage = new ProfilePage(driver);
+        Assert.assertTrue(profilePage.checkNeedCountry.isDisplayed());
         System.out.println("Successful \"Change profile country\" test");
     }
 

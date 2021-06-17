@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestBookmark extends BaseLogInTest{
-    WebDriver driver;
+
     HomePage homePage;
     ArticlePage articlePage;
     BookmarkPage bookmarkPage;
@@ -40,6 +40,7 @@ public class TestBookmark extends BaseLogInTest{
         bookmarkPage = new BookmarkPage(driver);
         String bookmarkArticleName = bookmarkPage.bookmarkArticle.getText();
         Assert.assertEquals(articleName, bookmarkArticleName);
+        bookmarkPage.bookmarkDelete.click();
         System.out.println("Successful \"Add article to bookmark\" test");
     }
 

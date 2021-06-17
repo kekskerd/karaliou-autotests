@@ -18,7 +18,6 @@ import pages.LogInPage;
 import java.util.concurrent.TimeUnit;
 
 public class TestLocalization extends BaseUnLogInTest {
-    WebDriver driver;
     HomePage homePage;
     LogInPage logInPage;
     private String email = "testuser1312test@yandex.ru";
@@ -44,7 +43,7 @@ public class TestLocalization extends BaseUnLogInTest {
         logInPage = new LogInPage(driver);
         logInPage.inputEmail(email);
         logInPage.inputPassword(password);
-        logInPage.pushEnterLogInButton();
+        logInPage.enterLogInButton.click();
         homePage.profileDropdownButton.click();
         homePage.settingsButton.click();
         homePage.englishRadioBtn.click();

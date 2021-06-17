@@ -13,21 +13,41 @@ import org.w3c.dom.html.HTMLInputElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class HomePage {
-    WebDriver driver;
-    public WebElement logInButton = driver.findElement(By.id("login"));
-    public WebElement article = driver.findElement(By.xpath("//li[1]/article/h2/a"));
-    public WebElement profileDropdownButton = driver.findElement(By.cssSelector("button.btn_navbar_user-dropdown"));
-    public WebElement profileBookmark = driver.findElement(By.xpath("//*[@role='menu']/ul/li[3]"));
-    public WebElement localizationButton = driver.findElement(By.cssSelector("button.js-show_lang_settings"));
-    public WebElement englishRadioBtn = driver.findElement(By.xpath("//label[text()='English']"));
-    public WebElement russianRadioBtn = driver.findElement(By.xpath("//label[text()='Русский']"));
-    public WebElement saveSettingsButton = driver.findElement(By.cssSelector("button.js-popup_save_btn"));
-    public WebElement settingsButton = driver.findElement(By.xpath("//*[@role='menu']/ul/li[5]"));
-    public WebElement profileSettings = driver.findElement(By.xpath("//*[@role='menu']/ul/li[6]"));
+public class HomePage extends BasePage{
+
+    @FindBy(id = "login")
+    public WebElement logInButton;
+
+    @FindBy(xpath = "//li[1]/article/h2/a")
+    public WebElement article;
+
+    @FindBy(css = "button.btn_navbar_user-dropdown")
+    public WebElement profileDropdownButton;
+
+    @FindBy(xpath = "//*[@role='menu']/ul/li[3]")
+    public WebElement profileBookmark;
+
+    @FindBy(css = "button.js-show_lang_settings")
+    public WebElement localizationButton;
+
+    @FindBy(xpath = "//label[text()='English']")
+    public WebElement englishRadioBtn;
+
+    @FindBy(xpath = "//label[text()='Русский']")
+    public WebElement russianRadioBtn;
+
+    @FindBy(css = "button.js-popup_save_btn")
+    public WebElement saveSettingsButton;
+
+    @FindBy(xpath = "//*[@role='menu']/ul/li[5]")
+    public WebElement settingsButton;
+
+    @FindBy(xpath = "//*[@role='menu']/ul/li[6]")
+    public WebElement profileSettings;
+
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void checkLogIn() {

@@ -4,18 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 
-public class SettingsPage {
-    WebDriver driver;
+public class SettingsPage extends BasePage{
+    public final String NEED_COUNTRY = "Сектор Газа";
 
-    public WebElement countryDropDownList = driver.findElement(By.xpath("//form/div[3]/div/div/div[1]/select"));
-    public WebElement profile = driver.findElement(By.xpath("//a[contains(text(),'Профиль')]"));
+    @FindBy(xpath = "//form/div[3]/div/div/div[1]/select")
+    public WebElement countryDropDownList;
+    @FindBy(xpath = "//*[contains(text(),'Успешно обновили')]")
+    public WebElement successfulUpdated;
+
+    @FindBy(xpath = "//a[contains(text(),'Профиль')]")
+    public WebElement profile;
+    @FindBy(xpath = "//option[contains(text(),'" + NEED_COUNTRY + "')]")
+    public WebElement getCountry;
     public SettingsPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public WebElement getCountry (String needCountry){
-        return driver.findElement(By.xpath("//option[contains(text(),'" + needCountry + "')]"));
-    }
 }
 

@@ -15,13 +15,12 @@ import pages.LogInPage;
 import java.util.concurrent.TimeUnit;
 
 public class BaseUnLogInTest {
-    WebDriver driver;
-
+    ChromeDriver driver;
 
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
