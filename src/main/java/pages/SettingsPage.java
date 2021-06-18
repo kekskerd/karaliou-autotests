@@ -21,6 +21,10 @@ public class SettingsPage extends BasePage{
     @FindBy(xpath = "//option[contains(text(),'" + NEED_COUNTRY + "')]")
     public WebElement getCountry;
 
+    public SettingsPage(WebDriver driver) {
+        super(driver);
+    }
+
     public SettingsPage countryDropDownListClick(){
         countryDropDownList.click();
         return this;
@@ -31,9 +35,9 @@ public class SettingsPage extends BasePage{
         return this;
     }
 
-    public SettingsPage profileClick(){
+    public ProfilePage profileClick(){
         profile.click();
-        return this;
+        return new ProfilePage(driver);
     }
 
     public SettingsPage getCountryClick(){
@@ -41,8 +45,6 @@ public class SettingsPage extends BasePage{
         return this;
     }
 
-    public SettingsPage(WebDriver driver) {
-        super(driver);
-    }
+
 }
 

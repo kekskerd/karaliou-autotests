@@ -13,8 +13,7 @@ public class BaseLogInTest extends BaseTest {
     public void setUp() {
         super.setUp();
         new HomePage(driver)
-                .logInButtonClick();
-        new LogInPage(driver)
+                .logInButtonClick()
                 .emailFieldSendKeys(email)
                 .passwordFieldSendKeys(password)
                 .enterLogInButtonClick();

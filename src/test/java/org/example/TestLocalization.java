@@ -32,8 +32,8 @@ public class TestLocalization extends BaseTest {
         new LogInPage(driver)
                 .emailFieldSendKeys(email)
                 .passwordFieldSendKeys(password)
-                .enterLogInButtonClick();
-        homePage.profileDropdownButtonClick()
+                .enterLogInButtonClick()
+                .profileDropdownButtonClick()
                 .settingsButtonClick()
                 .englishRadioBtnClick()
                 .saveSettingsButtonClick();

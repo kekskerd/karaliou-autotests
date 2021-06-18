@@ -31,9 +31,9 @@ public class LogInPage extends BasePage{
         return this;
     }
 
-    public LogInPage enterLogInButtonClick(){
+    public HomePage enterLogInButtonClick(){
         enterLogInButton.click();
-        return this;
+        return new HomePage(driver);
     }
 
 }

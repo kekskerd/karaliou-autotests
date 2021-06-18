@@ -14,8 +14,8 @@ public class ArticlePage extends BasePage{
         super(driver);
     }
 
-    public ArticlePage bookmarkClick(){
+    public HomePage bookmarkClick(){
         bookmark.click();
-        return this;
+        return new HomePage(driver);
     }
 }

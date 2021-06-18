@@ -15,11 +15,12 @@ public class ProfilePage extends BasePage{
     @FindBy(xpath = "//*[contains(text(),'" + NEED_COUNTRY + "')]")
     public WebElement NeedCountry;
 
+    public ProfilePage(WebDriver driver) {
+        super(driver);
+    }
+
     public void checkNeedCountry(){
         Assert.assertTrue(NeedCountry.isDisplayed());
     }
 
-    public ProfilePage(WebDriver driver) {
-        super(driver);
-    }
 }

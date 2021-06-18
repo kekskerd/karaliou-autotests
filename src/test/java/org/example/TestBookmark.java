@@ -33,8 +33,8 @@ public class TestBookmark extends BaseLogInTest {
         homePage = new HomePage(driver);
         String articleName = homePage.article.getText();
         new ArticlePage(driver)
-                .bookmarkClick();
-        homePage.profileDropdownButtonClick()
+                .bookmarkClick()
+                .profileDropdownButtonClick()
                 .profileBookmarkClick();
         bookmarkPage = new BookmarkPage(driver);
         String bookmarkArticleName = bookmarkPage.bookmarkArticle.getText();

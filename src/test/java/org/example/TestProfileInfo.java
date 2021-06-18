@@ -32,13 +32,11 @@ public class TestProfileInfo extends BaseLogInTest {
     public void test3() {
         new HomePage(driver)
                 .profileDropdownButtonClick()
-                .profileSettingsClick();
-        new SettingsPage(driver)
+                .profileSettingsClick()
                 .countryDropDownListClick()
                 .getCountryClick()
-                .profileClick();
-        profilePage = new ProfilePage(driver);
-        profilePage.checkNeedCountry();
+                .profileClick()
+                .checkNeedCountry();
         System.out.println("Successful \"Change profile country\" test");
     }
 

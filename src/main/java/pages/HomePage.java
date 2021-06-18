@@ -18,7 +18,7 @@ public class HomePage extends BasePage {
     @FindBy(id = "login")
     public WebElement logInButton;
 
-    @FindBy(xpath = "//li[1]/article/h2/a")
+    @FindBy(xpath = "//article/h2/a")
     public WebElement article;
 
     @FindBy(css = "button.btn_navbar_user-dropdown")
@@ -45,9 +45,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@role='menu']/ul/li[6]")
     public WebElement profileSettings;
 
-    public HomePage logInButtonClick() {
-        logInButton.click();
-        return this;
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
 
     public HomePage articleClick() {
@@ -89,14 +88,16 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage profileSettingsClick() {
+    public SettingsPage profileSettingsClick() {
         profileSettings.click();
-        return this;
+        return new SettingsPage(driver);
     }
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public LogInPage logInButtonClick() {
+        logInButton.click();
+        return new LogInPage(driver);
     }
+
 
     public void checkLogIn() {
         Assert.assertTrue(profileDropdownButton.isDisplayed());

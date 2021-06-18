@@ -7,11 +7,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class BookmarkPage extends BasePage{
-    @FindBy(xpath = "//li[1]/article/h2/a")
+    @FindBy(xpath = "//article/h2/a")
     public WebElement bookmarkArticle;
 
     @FindBy(xpath = "//button[@title='Удалить из закладок']")
     public WebElement bookmarkDelete;
+
+    public BookmarkPage(WebDriver driver) {
+        super(driver);
+    }
 
     public BookmarkPage bookmarkArticleClick(){
         bookmarkArticle.click();
@@ -23,7 +27,4 @@ public class BookmarkPage extends BasePage{
         return this;
     }
 
-    public BookmarkPage(WebDriver driver) {
-        super(driver);
-    }
 }
