@@ -13,4 +13,9 @@ public class ArticlePage extends BasePage{
     public ArticlePage(WebDriver driver) {
         super(driver);
     }
+
+    public ArticlePage bookmarkClick(){
+        bookmark.click();
+        return this;
+    }
 }

@@ -21,12 +21,19 @@ public class LogInPage extends BasePage{
         super(driver);
     }
 
-    public void inputEmail(String email) {
+    public LogInPage emailFieldSendKeys(String email){
         emailField.sendKeys(email);
+        return this;
     }
 
-    public void inputPassword(String password) {
+    public LogInPage passwordFieldSendKeys(String password) {
         passwordField.sendKeys(password);
+        return this;
+    }
+
+    public LogInPage enterLogInButtonClick(){
+        enterLogInButton.click();
+        return this;
     }
 
 }

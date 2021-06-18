@@ -21,10 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TestBookmark extends BaseLogInTest{
+public class TestBookmark extends BaseLogInTest {
 
     HomePage homePage;
-    ArticlePage articlePage;
     BookmarkPage bookmarkPage;
     private String email = "testuser1312test@yandex.ru";
     private String password = "testuser1312test1312";
@@ -33,14 +32,14 @@ public class TestBookmark extends BaseLogInTest{
     public void test3() {
         homePage = new HomePage(driver);
         String articleName = homePage.article.getText();
-        articlePage = new ArticlePage(driver);
-        articlePage.bookmark.click();
-        homePage.profileDropdownButton.click();
-        homePage.profileBookmark.click();
+        new ArticlePage(driver)
+                .bookmarkClick();
+        homePage.profileDropdownButtonClick()
+                .profileBookmarkClick();
         bookmarkPage = new BookmarkPage(driver);
         String bookmarkArticleName = bookmarkPage.bookmarkArticle.getText();
         Assert.assertEquals(articleName, bookmarkArticleName);
-        bookmarkPage.bookmarkDelete.click();
+        bookmarkPage.bookmarkDeleteClick();
         System.out.println("Successful \"Add article to bookmark\" test");
     }
 

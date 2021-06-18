@@ -10,8 +10,18 @@ public class BookmarkPage extends BasePage{
     @FindBy(xpath = "//li[1]/article/h2/a")
     public WebElement bookmarkArticle;
 
-    @FindBy(xpath = "//li[2]/button[@title='Удалить из закладок']")
+    @FindBy(xpath = "//button[@title='Удалить из закладок']")
     public WebElement bookmarkDelete;
+
+    public BookmarkPage bookmarkArticleClick(){
+        bookmarkArticle.click();
+        return this;
+    }
+
+    public BookmarkPage bookmarkDeleteClick(){
+        bookmarkDelete.click();
+        return this;
+    }
 
     public BookmarkPage(WebDriver driver) {
         super(driver);

@@ -30,15 +30,15 @@ public class TestProfileInfo extends BaseLogInTest {
 
     @Test(description = "Проверка изменения страны в информации о профиле")
     public void test3() {
-        homePage = new HomePage(driver);
-        homePage.profileDropdownButton.click();
-        homePage.profileSettings.click();
-        settingsPage = new SettingsPage(driver);
-        settingsPage.countryDropDownList.click();
-        settingsPage.getCountry.click();
-        settingsPage.profile.click();
+        new HomePage(driver)
+                .profileDropdownButtonClick()
+                .profileSettingsClick();
+        new SettingsPage(driver)
+                .countryDropDownListClick()
+                .getCountryClick()
+                .profileClick();
         profilePage = new ProfilePage(driver);
-        Assert.assertTrue(profilePage.checkNeedCountry.isDisplayed());
+        profilePage.checkNeedCountry();
         System.out.println("Successful \"Change profile country\" test");
     }
 

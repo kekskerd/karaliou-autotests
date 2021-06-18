@@ -13,7 +13,7 @@ import org.w3c.dom.html.HTMLInputElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     @FindBy(id = "login")
     public WebElement logInButton;
@@ -45,6 +45,54 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[@role='menu']/ul/li[6]")
     public WebElement profileSettings;
 
+    public HomePage logInButtonClick() {
+        logInButton.click();
+        return this;
+    }
+
+    public HomePage articleClick() {
+        article.click();
+        return this;
+    }
+    public HomePage profileDropdownButtonClick() {
+        profileDropdownButton.click();
+        return this;
+    }
+
+    public HomePage profileBookmarkClick() {
+        profileBookmark.click();
+        return this;
+    }
+
+    public HomePage englishRadioBtnClick() {
+        englishRadioBtn.click();
+        return this;
+    }
+
+    public HomePage localizationButtonClick() {
+        localizationButton.click();
+        return this;
+    }
+
+    public HomePage settingsButtonClick() {
+        settingsButton.click();
+        return this;
+    }
+
+    public HomePage russianRadioBtnClick() {
+        russianRadioBtn.click();
+        return this;
+    }
+
+    public HomePage saveSettingsButtonClick() {
+        saveSettingsButton.click();
+        return this;
+    }
+
+    public HomePage profileSettingsClick() {
+        profileSettings.click();
+        return this;
+    }
 
     public HomePage(WebDriver driver) {
         super(driver);

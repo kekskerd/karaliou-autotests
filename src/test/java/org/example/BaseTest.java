@@ -14,7 +14,7 @@ import pages.LogInPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseUnLogInTest {
+public class BaseTest {
     ChromeDriver driver;
 
     @BeforeTest
@@ -22,7 +22,7 @@ public class BaseUnLogInTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.get("https://habr.com/");
     }
