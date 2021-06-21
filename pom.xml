@@ -106,7 +106,14 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M5</version>
-<!--          <version>2.22.1</version>-->
+          <configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+              <systemPropertyVariables>
+                <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+              </systemPropertyVariables>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
@@ -128,6 +135,11 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-maven</artifactId>
+          <version>2.9</version>
         </plugin>
       </plugins>
     </pluginManagement>
