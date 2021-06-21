@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,21 +26,18 @@ public class SettingsPage extends BasePage{
         super(driver);
     }
 
+    @Step("Открытие выпадающего списка стран")
     public SettingsPage countryDropDownListClick(){
         countryDropDownList.click();
         return this;
     }
 
-    public SettingsPage successfulUpdatedClick(){
-        successfulUpdated.click();
-        return this;
-    }
-
+    @Step("Переход на страницу профиля пользователя")
     public ProfilePage profileClick(){
         profile.click();
         return new ProfilePage(driver);
     }
-
+    @Step("Выбор нужной страны в выпадающем списке")
     public SettingsPage getCountryClick(){
         getCountry.click();
         return this;

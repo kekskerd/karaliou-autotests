@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +22,7 @@ public class BookmarkPage extends BasePage{
         bookmarkArticle.click();
         return this;
     }
-
+    @Step("Удаление статьи из закладки")
     public BookmarkPage bookmarkDeleteClick(){
         bookmarkDelete.click();
         return this;

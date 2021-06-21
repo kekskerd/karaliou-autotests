@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,7 +41,7 @@ public class HomePage extends BasePage {
     public WebElement saveSettingsButton;
 
     @FindBy(xpath = "//*[@role='menu']/ul/li[5]")
-    public WebElement settingsButton;
+    public WebElement localizationSettingsButton;
 
     @FindBy(xpath = "//*[@role='menu']/ul/li[6]")
     public WebElement profileSettings;
@@ -53,52 +54,53 @@ public class HomePage extends BasePage {
         article.click();
         return this;
     }
+    @Step("Открытие выпадающего меню пользователя")
     public HomePage profileDropdownButtonClick() {
         profileDropdownButton.click();
         return this;
     }
-
+    @Step("Переход в 'Закладки' Пользователя")
     public HomePage profileBookmarkClick() {
         profileBookmark.click();
         return this;
     }
-
+    @Step("Выбор английского языка в меню выбора локализации")
     public HomePage englishRadioBtnClick() {
         englishRadioBtn.click();
         return this;
     }
-
+    @Step("Открытие окна смены локализации")
     public HomePage localizationButtonClick() {
         localizationButton.click();
         return this;
     }
-
-    public HomePage settingsButtonClick() {
-        settingsButton.click();
+    @Step("Переход в 'Настройки локализации' Пользователя")
+    public HomePage localizationSettingsButtonClick() {
+        localizationSettingsButton.click();
         return this;
     }
-
+    @Step("Выбор русского языка в меню выбора локализации")
     public HomePage russianRadioBtnClick() {
         russianRadioBtn.click();
         return this;
     }
-
+    @Step("Сохранение настроек локализации")
     public HomePage saveSettingsButtonClick() {
         saveSettingsButton.click();
         return this;
     }
-
+    @Step("Переход в 'Настройки' Пользователя")
     public SettingsPage profileSettingsClick() {
         profileSettings.click();
         return new SettingsPage(driver);
     }
-
+    @Step("Открытие страницы аутентификации")
     public LogInPage logInButtonClick() {
         logInButton.click();
         return new LogInPage(driver);
     }
 
-
+    @Step("Проверка успешной аутентификации Пользователя")
     public void checkLogIn() {
         Assert.assertTrue(profileDropdownButton.isDisplayed());
     }

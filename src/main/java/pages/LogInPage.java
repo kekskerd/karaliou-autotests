@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,16 +22,17 @@ public class LogInPage extends BasePage{
         super(driver);
     }
 
+    @Step("Заполнение поля 'email'")
     public LogInPage emailFieldSendKeys(String email){
         emailField.sendKeys(email);
         return this;
     }
-
+    @Step("Заполнение поля 'password'")
     public LogInPage passwordFieldSendKeys(String password) {
         passwordField.sendKeys(password);
         return this;
     }
-
+    @Step("Нажатие кнопки 'Войти'")
     public HomePage enterLogInButtonClick(){
         enterLogInButton.click();
         return new HomePage(driver);

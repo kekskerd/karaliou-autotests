@@ -1,6 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -25,11 +26,10 @@ public class TestBookmark extends BaseLogInTest {
 
     HomePage homePage;
     BookmarkPage bookmarkPage;
-    private String email = "testuser1312test@yandex.ru";
-    private String password = "testuser1312test1312";
 
-    @Test(description = "Проверка добавления статьи в закладки")
-    public void test3() {
+    @Test
+    @Description("Проверка добавления статьи в закладки")
+    public void test1() {
         homePage = new HomePage(driver);
         String articleName = homePage.article.getText();
         new ArticlePage(driver)

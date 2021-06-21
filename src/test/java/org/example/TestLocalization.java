@@ -1,18 +1,21 @@
 package org.example;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LogInPage;
+import utils.PropertyHelper;
 
 public class TestLocalization extends BaseTest {
     HomePage homePage;
-    private String email = "testuser1312test@yandex.ru";
-    private String password = "testuser1312test1312";
+    private final String validEmail = PropertyHelper.getConf().validEmail();
+    private final String validPassword = PropertyHelper.getConf().validPassword();
 
-    @Test(description = "Проверка смены локализации на английскую версию без входа в аккаунт")
+    @Test
+    @Description("Проверка смены локализации с русской на английскую версию без входа в аккаунт")
     public void test1() {
         new HomePage(driver)
                 .localizationButtonClick()
@@ -25,16 +28,17 @@ public class TestLocalization extends BaseTest {
         System.out.println("Successful \"Change Localization\" test");
     }
 
-    @Test(description = "Проверка смены локализации на анлийскую версию у авторизованного пользователя")
+    @Test
+    @Description("Проверка смены локализации с русской на анлийскую версию у авторизованного пользователя")
     public void test2() {
         homePage = new HomePage(driver);
         homePage.logInButton.click();
         new LogInPage(driver)
-                .emailFieldSendKeys(email)
-                .passwordFieldSendKeys(password)
+                .emailFieldSendKeys(validEmail)
+                .passwordFieldSendKeys(validPassword)
                 .enterLogInButtonClick()
                 .profileDropdownButtonClick()
-                .settingsButtonClick()
+                .localizationSettingsButtonClick()
                 .englishRadioBtnClick()
                 .saveSettingsButtonClick();
         new WebDriverWait(driver, 5)
@@ -44,10 +48,11 @@ public class TestLocalization extends BaseTest {
         System.out.println("Successful \"Change Localization\" test");
     }
 
-    @Test(description = "Проверка смены локализации обратно на русскую версию у авторизованного пользователя")
+    @Test
+    @Description("Проверка смены локализации c английской на русскую версию у авторизованного пользователя")
     public void test3() {
         homePage.profileDropdownButtonClick()
-                .settingsButtonClick()
+                .localizationSettingsButtonClick()
                 .russianRadioBtnClick()
                 .saveSettingsButtonClick();
         new WebDriverWait(driver, 5)

@@ -1,6 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -22,14 +23,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestProfileInfo extends BaseLogInTest {
-    HomePage homePage;
-    SettingsPage settingsPage;
-    ProfilePage profilePage;
-    private String needCountry = "Сектор Газа";
 
-
-    @Test(description = "Проверка изменения страны в информации о профиле")
-    public void test3() {
+    @Test
+    @Description("Проверка изменения страны в информации о профиле")
+    public void test1() {
         new HomePage(driver)
                 .profileDropdownButtonClick()
                 .profileSettingsClick()

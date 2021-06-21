@@ -11,20 +11,24 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import pages.HomePage;
 import pages.LogInPage;
+import utils.PropertyHelper;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     ChromeDriver driver;
+    private final String startUrl = PropertyHelper.getConf().startUrl();
+    private final int pageLoadTimeout = PropertyHelper.getConf().pageLoadTimeout();
+    private final int elementTimeout = PropertyHelper.getConf().elementTimeout();
 
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-        driver.get("https://habr.com/");
+        driver.manage().timeouts().implicitlyWait(elementTimeout, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(pageLoadTimeout, TimeUnit.SECONDS);
+        driver.get(startUrl);
     }
 
     @AfterTest
