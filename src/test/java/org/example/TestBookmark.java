@@ -2,6 +2,7 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
+import logging.DefaultListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.ArticlePage;
 import pages.BookmarkPage;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+@Listeners(DefaultListener.class)
 public class TestBookmark extends BaseLogInTest {
 
     HomePage homePage;

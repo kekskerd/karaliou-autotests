@@ -20,4 +20,7 @@ public interface AppConfig extends Config {
     @Key("timeout.page")
     int pageLoadTimeout();
 
+    @Key(value = "webdriver.browser.name")
+    String webDriverBrowserName();
+
 }
