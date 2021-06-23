@@ -28,7 +28,7 @@ public class TestLocalization extends BaseTest {
                 .until(ExpectedConditions.urlToBe("https://habr.com/en/"));
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals(currentUrl, "https://habr.com/en/");
-        System.out.println("Successful \"Change Localization\" test");
+        System.out.println("Successful \"UnLogIn RU->EN Localization\" test");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class TestLocalization extends BaseTest {
                 .until(ExpectedConditions.urlContains("https://habr.com/en/"));
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("https://habr.com/en/"));
-        System.out.println("Successful \"Change Localization\" test");
+        System.out.println("Successful \"RU->EN Localization\" test");
     }
 
     @Test
@@ -62,7 +62,7 @@ public class TestLocalization extends BaseTest {
                 .until(ExpectedConditions.urlContains("https://habr.com/ru/"));
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("https://habr.com/ru/"));
-        System.out.println("Successful \"Change Localization\" test");
+        System.out.println("Successful \"EN->RU Localization\" test");
     }
 
 }
