@@ -46,6 +46,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@role='menu']/ul/li[6]")
     public WebElement profileSettings;
 
+    @FindBy(xpath = "//*[@role='menu']/ul/li[7]")
+    public WebElement exitProfile;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -99,10 +102,21 @@ public class HomePage extends BasePage {
         logInButton.click();
         return new LogInPage(driver);
     }
+    @Step("Открытие страницы аутентификации")
+    public HomePage exit() {
+        exitProfile.click();
+        return this;
+    }
+
 
     @Step("Проверка успешной аутентификации Пользователя")
     public void checkLogIn() {
         Assert.assertTrue(profileDropdownButton.isDisplayed());
+    }
+    @Step("Проверка успешного выхода из профиля")
+    public HomePage checkExit() {
+        Assert.assertTrue(logInButton.isDisplayed());
+        return new HomePage(driver);
     }
 
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class LogInPage extends BasePage{
 
@@ -17,6 +18,9 @@ public class LogInPage extends BasePage{
 
     @FindBy(xpath = "//div[4]/button")
     public WebElement enterLogInButton;
+
+    @FindBy(className = ".s-error")
+    public WebElement enterCorrectEmailText;
 
     public LogInPage(WebDriver driver) {
         super(driver);
@@ -37,6 +41,13 @@ public class LogInPage extends BasePage{
         enterLogInButton.click();
         return new HomePage(driver);
     }
+
+    @Step("Проверка на невалидный email")
+    public void checkInvalidEmail() {
+        Assert.assertTrue(enterCorrectEmailText.isDisplayed());
+    }
+
+
 
 }
 
