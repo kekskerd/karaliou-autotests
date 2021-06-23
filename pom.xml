@@ -20,7 +20,7 @@
     <webdriver.manager>4.4.3</webdriver.manager>
     <testng>6.14.3</testng>
     <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
-    <allure.testng>2.14.0</allure.testng>
+    <allure.testng>2.13.9</allure.testng>
     <aeonbits.owner>1.0.4</aeonbits.owner>
     <aspectj.version>1.9.6</aspectj.version>
   </properties>
