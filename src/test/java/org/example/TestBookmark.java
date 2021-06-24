@@ -3,6 +3,7 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import logging.DefaultListener;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -24,12 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@Listeners(DefaultListener.class)
 public class TestBookmark extends BaseLogInTest {
 
     HomePage homePage;
-    BookmarkPage bookmarkPage;
-
     @Test
     @Description("Проверка добавления статьи в закладки")
     public void test1() {
@@ -38,11 +36,9 @@ public class TestBookmark extends BaseLogInTest {
         new ArticlePage(driver)
                 .bookmarkClick()
                 .profileDropdownButtonClick()
-                .profileBookmarkClick();
-        bookmarkPage = new BookmarkPage(driver);
-        String bookmarkArticleName = bookmarkPage.bookmarkArticle.getText();
-        Assert.assertEquals(articleName, bookmarkArticleName);
-        bookmarkPage.bookmarkDeleteClick();
+                .profileBookmarkClick()
+                .checkAddBookmark(articleName)
+                .bookmarkDeleteClick();
         System.out.println("Successful \"Add article to bookmark\" test");
     }
 

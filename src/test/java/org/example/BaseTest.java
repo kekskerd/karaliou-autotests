@@ -17,8 +17,6 @@ import utils.PropertyHelper;
 
 import java.util.concurrent.TimeUnit;
 
-@Slf4j
-@Listeners(DefaultListener.class)
 public class BaseTest {
     WebDriver driver;
     private final String startUrl = PropertyHelper.getConf().startUrl();
@@ -26,13 +24,11 @@ public class BaseTest {
     @BeforeTest
     public void setUp() {
         driver = DriverProvider.getDriver();
-        log.info("Open url: " + startUrl);
         driver.get(startUrl);
     }
 
-    @AfterClass
+    @AfterTest
     public void afterTest() {
-        log.info("Tear down driver");
         DriverProvider.tearDown();
     }
 }

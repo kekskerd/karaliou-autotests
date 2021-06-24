@@ -1,6 +1,9 @@
 package org.example;
 
+import logging.DefaultListener;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import pages.HomePage;
 import pages.LogInPage;
 import utils.PropertyHelper;

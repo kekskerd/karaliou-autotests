@@ -11,12 +11,13 @@ public class DefaultListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        saveTextLog(getTestMethodName(result) + " test started");
+        log.info("Test started " + getTestMethodName(result));
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         saveTextLog(getTestMethodName(result) + " test passed success");
+        ScreenshotMaker.makeScreenshot();
     }
 
     @Override

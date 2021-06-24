@@ -49,6 +49,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@role='menu']/ul/li[7]")
     public WebElement exitProfile;
 
+
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -63,9 +65,9 @@ public class HomePage extends BasePage {
         return this;
     }
     @Step("Переход в 'Закладки' Пользователя")
-    public HomePage profileBookmarkClick() {
+    public BookmarkPage profileBookmarkClick() {
         profileBookmark.click();
-        return this;
+        return new BookmarkPage(driver);
     }
     @Step("Выбор английского языка в меню выбора локализации")
     public HomePage englishRadioBtnClick() {
@@ -102,7 +104,7 @@ public class HomePage extends BasePage {
         logInButton.click();
         return new LogInPage(driver);
     }
-    @Step("Открытие страницы аутентификации")
+    @Step("Выход из профиля")
     public HomePage exit() {
         exitProfile.click();
         return this;
@@ -113,11 +115,19 @@ public class HomePage extends BasePage {
     public void checkLogIn() {
         Assert.assertTrue(profileDropdownButton.isDisplayed());
     }
+
     @Step("Проверка успешного выхода из профиля")
-    public HomePage checkExit() {
+    public void checkExit() {
         Assert.assertTrue(logInButton.isDisplayed());
-        return new HomePage(driver);
     }
+    @Step("Проверка смены локализации")
+    public void checkLocalization(WebDriver driver, String localization) {
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.urlContains("https://habr.com/" + localization + "/"));
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("https://habr.com/" + localization + "/"));
+    }
+
 
 }
 

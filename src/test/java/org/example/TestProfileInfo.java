@@ -3,11 +3,11 @@ package org.example;
 
 import io.qameta.allure.Description;
 import logging.DefaultListener;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-@Listeners(DefaultListener.class)
 public class TestProfileInfo extends BaseLogInTest {
 
     @Test
