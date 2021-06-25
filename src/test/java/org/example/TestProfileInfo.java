@@ -7,7 +7,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-@Listeners(DefaultListener.class)
 public class TestProfileInfo extends BaseLogInTest {
 
     @Test

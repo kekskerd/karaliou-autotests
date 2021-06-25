@@ -8,7 +8,6 @@ import pages.HomePage;
 import pages.LogInPage;
 import utils.PropertyHelper;
 
-@Listeners(DefaultListener.class)
 public class TestLocalization extends BaseTest {
     HomePage homePage;
     private final String validEmail = PropertyHelper.getConf().validEmail();

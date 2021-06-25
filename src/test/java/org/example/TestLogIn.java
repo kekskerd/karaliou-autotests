@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import utils.PropertyHelper;
 
-@Listeners(DefaultListener.class)
 public class TestLogIn extends BaseTest {
     private final String validEmail = PropertyHelper.getConf().validEmail();
     private final String validPassword = PropertyHelper.getConf().validPassword();

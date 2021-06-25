@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import pages.ArticlePage;
 import pages.HomePage;
 
-@Listeners(DefaultListener.class)
 public class TestBookmark extends BaseLogInTest {
 
     HomePage homePage;
