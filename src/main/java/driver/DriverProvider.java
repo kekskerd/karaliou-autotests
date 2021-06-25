@@ -1,7 +1,5 @@
 package driver;
 
-import utils.AppConfig;
-import utils.PropertyHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -9,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utils.AppConfig;
+import utils.PropertyHelper;
 
 import java.util.concurrent.TimeUnit;
 

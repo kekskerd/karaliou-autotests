@@ -2,16 +2,13 @@ package org.example;
 
 import io.qameta.allure.Description;
 import logging.DefaultListener;
-import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LogInPage;
 import utils.PropertyHelper;
 
+@Listeners(DefaultListener.class)
 public class TestLocalization extends BaseTest {
     HomePage homePage;
     private final String validEmail = PropertyHelper.getConf().validEmail();

@@ -2,14 +2,13 @@ package org.example;
 
 import io.qameta.allure.Description;
 import logging.DefaultListener;
-import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LogInPage;
 import utils.PropertyHelper;
 
+@Listeners(DefaultListener.class)
 public class TestLogIn extends BaseTest {
     private final String validEmail = PropertyHelper.getConf().validEmail();
     private final String validPassword = PropertyHelper.getConf().validPassword();
