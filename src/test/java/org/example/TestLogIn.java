@@ -1,9 +1,7 @@
 package org.example;
 
 import io.qameta.allure.Description;
-import logging.DefaultListener;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import utils.PropertyHelper;

@@ -1,8 +1,11 @@
 package pages;
 
+import logging.DefaultListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Listeners;
 
+@Listeners(DefaultListener.class)
 public class BasePage {
     WebDriver driver;
 
