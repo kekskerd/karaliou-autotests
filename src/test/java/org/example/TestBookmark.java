@@ -1,25 +1,25 @@
 package org.example;
 
 import io.qameta.allure.Description;
+import lombok.extern.log4j.Log4j;
 import org.testng.annotations.Test;
 import pages.ArticlePage;
 import pages.HomePage;
 
+@Log4j
 public class TestBookmark extends BaseLogInTest {
 
-    HomePage homePage;
     @Test
     @Description("Проверка добавления статьи в закладки")
     public void test1() {
-        homePage = new HomePage(driver);
-        String articleName = homePage.article.getText();
+        String articleName = new HomePage(driver).article.getText();
         new ArticlePage(driver)
                 .bookmarkClick()
                 .profileDropdownButtonClick()
                 .profileBookmarkClick()
                 .checkAddBookmark(articleName)
                 .bookmarkDeleteClick();
-        System.out.println("Successful \"Add article to bookmark\" test");
+        log.info("Successful \"Add article to bookmark\" test");
     }
 
 }

@@ -11,7 +11,7 @@ public class DefaultListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        log.info("Test started " + getTestMethodName(result));
+
     }
 
     @Override
@@ -38,7 +38,7 @@ public class DefaultListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        saveTextLog(context + " test started");
+
     }
 
 

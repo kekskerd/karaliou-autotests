@@ -1,9 +1,9 @@
 package org.example;
 
 import driver.DriverProvider;
+import logging.DefaultListener;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import utils.PropertyHelper;
 
 public class BaseTest {
@@ -19,5 +19,5 @@ public class BaseTest {
     @AfterTest
     public void afterTest() {
         DriverProvider.tearDown();
+        }
     }
-}

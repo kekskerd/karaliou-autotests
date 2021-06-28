@@ -114,6 +114,7 @@ public class HomePage extends BasePage {
     public void checkExit() {
         Assert.assertTrue(logInButton.isDisplayed());
     }
+
     @Step("Проверка смены локализации")
     public void checkLocalization(WebDriver driver, String localization) {
         new WebDriverWait(driver, 5)
