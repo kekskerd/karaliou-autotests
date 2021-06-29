@@ -36,11 +36,5 @@ public class DriverProvider {
         return driver;
     }
 
-    public static void tearDown() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
-    }
 }
 

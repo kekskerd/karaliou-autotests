@@ -1,13 +1,12 @@
 package org.example;
 
-
 import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
 @Log4j
-public class TestProfileInfo extends BaseLogInTest {
+public class TestProfileInfo extends BaseTest {
 
     @Test
     @Description("Проверка изменения страны в информации о профиле")
@@ -19,7 +18,5 @@ public class TestProfileInfo extends BaseLogInTest {
                 .getCountryClick()
                 .profileClick()
                 .checkNeedCountry();
-        log.info("Successful \"Change profile country\" test");
     }
-
 }

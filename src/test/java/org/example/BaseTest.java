@@ -1,7 +1,6 @@
 package org.example;
 
 import driver.DriverProvider;
-import logging.DefaultListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.PropertyHelper;
@@ -16,8 +15,8 @@ public class BaseTest {
         driver.get(startUrl);
     }
 
-    @AfterTest
-    public void afterTest() {
-        DriverProvider.tearDown();
-        }
+    @AfterSuite
+    public void tearDown() {
+        driver.quit();
     }
+}

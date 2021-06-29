@@ -7,7 +7,7 @@ import pages.ArticlePage;
 import pages.HomePage;
 
 @Log4j
-public class TestBookmark extends BaseLogInTest {
+public class TestBookmark extends BaseTest {
 
     @Test
     @Description("Проверка добавления статьи в закладки")
@@ -19,7 +19,5 @@ public class TestBookmark extends BaseLogInTest {
                 .profileBookmarkClick()
                 .checkAddBookmark(articleName)
                 .bookmarkDeleteClick();
-        log.info("Successful \"Add article to bookmark\" test");
     }
-
 }

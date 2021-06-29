@@ -10,11 +10,6 @@
             <class name = "org.example.TestLogIn"/>
         </classes>
     </test>
-    <test name = "TestProfileInfo">
-        <classes>
-            <class name = "org.example.TestProfileInfo"/>
-        </classes>
-    </test>
     <test name = "TestLocalization">
         <classes>
             <class name = "org.example.TestLocalization"/>
@@ -23,6 +18,11 @@
     <test name = "TestBookmark">
         <classes>
             <class name = "org.example.TestBookmark"/>
+        </classes>
+    </test>
+    <test name = "TestProfileInfo">
+        <classes>
+            <class name = "org.example.TestProfileInfo"/>
         </classes>
     </test>
 </suite>

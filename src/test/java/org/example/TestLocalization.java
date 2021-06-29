@@ -2,7 +2,6 @@ package org.example;
 
 import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import utils.PropertyHelper;
@@ -20,13 +19,12 @@ public class TestLocalization extends BaseTest {
                 .englishRadioBtnClick()
                 .saveSettingsButtonClick()
                 .checkLocalization(driver, "en");
-        log.info("Successful \"UnLogIn RU->EN Localization\" test");
     }
 
     @Test
     @Description("Проверка смены локализации с русской на анлийскую версию у авторизованного пользователя")
     public void test2() {
-       new HomePage(driver)
+        new HomePage(driver)
                 .logInButtonClick()
                 .emailFieldSendKeys(validEmail)
                 .passwordFieldSendKeys(validPassword)
@@ -36,7 +34,6 @@ public class TestLocalization extends BaseTest {
                 .englishRadioBtnClick()
                 .saveSettingsButtonClick()
                 .checkLocalization(driver, "en");
-        log.info("Successful \"RU->EN Localization\" test");
     }
 
     @Test
@@ -48,7 +45,5 @@ public class TestLocalization extends BaseTest {
                 .russianRadioBtnClick()
                 .saveSettingsButtonClick()
                 .checkLocalization(driver, "ru");
-        log.info("Successful \"EN->RU Localization\" test");
     }
-
 }

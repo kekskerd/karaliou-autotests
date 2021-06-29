@@ -3,8 +3,6 @@ package org.example;
 import data.InvalidEmailProvider;
 import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import utils.PropertyHelper;
@@ -23,7 +21,6 @@ public class TestLogIn extends BaseTest {
                 .passwordFieldSendKeys(validPassword)
                 .enterLogInButtonClick()
                 .checkLogIn();
-        log.info("Successful \"LogIn\" test");
     }
 
     @Test
@@ -33,7 +30,6 @@ public class TestLogIn extends BaseTest {
                 .profileDropdownButtonClick()
                 .exit()
                 .checkExit();
-        log.info("Successful \"Exit\" test");
     }
 
     @Test(dataProvider = "InvalidEmailProvider", dataProviderClass = InvalidEmailProvider.class)
@@ -46,6 +42,5 @@ public class TestLogIn extends BaseTest {
                 .enterInvalidLogInButtonClick()
                 .checkInvalidEmail()
                 .goBackToHomePage(driver);
-        log.info("Successful \"LogIn\" NEGATIVE test with email value = \'" + invalidEmail + "\'");
     }
 }
