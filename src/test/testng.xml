@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Suite1">
+    <listeners>
+        <listener class-name="logging.DefaultListener"/>
+    </listeners>
+    <test name = "TestLogIn">
+        <classes>
+            <class name = "org.example.TestLogIn"/>
+        </classes>
+    </test>
+    <test name = "TestLocalization">
+        <classes>
+            <class name = "org.example.TestLocalization"/>
+        </classes>
+    </test>
+    <test name = "TestBookmark">
+        <classes>
+            <class name = "org.example.TestBookmark"/>
+        </classes>
+    </test>
+    <test name = "TestProfileInfo">
+        <classes>
+            <class name = "org.example.TestProfileInfo"/>
+        </classes>
+    </test>
+</suite>
+
+
